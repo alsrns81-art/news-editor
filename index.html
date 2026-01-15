@@ -15,56 +15,72 @@
 
 <body>
 
-    <div class="hero-container">
-        <header class="main-header">
-            <h1>미니샘의 하면된다 <span>신문사설 검색하기</span></h1>
-            <p class="subtitle">10개의 사설에서 원하는 내용을 구조별로 쉽게 찾아보세요.</p>
-        </header>
+    <div class="hero-section">
+        <div class="hero-content">
+            <header class="main-header">
+                <div class="logo-area">
+                    <h1>미니샘의 하면된다 <span class="highlight">사설 검색</span></h1>
+                </div>
+                <p class="subtitle">다양한 주제의 사설을 카테고리별로 쉽게 찾아보세요</p>
+            </header>
 
-        <div class="search-wrapper">
-            <div class="search-tabs" id="search-tabs">
-                <button class="tab-btn active" data-type="all">전체</button>
-                <button class="tab-btn" data-type="structure_background">배경</button>
-                <button class="tab-btn" data-type="structure_evidence">근거</button>
-                <button class="tab-btn" data-type="structure_fact">사실</button>
-                <button class="tab-btn" data-type="structure_argument">주장</button>
-                <button class="tab-btn" data-type="author">작성자</button>
-            </div>
-
-            <div class="search-box">
-                <div class="input-group">
-                    <input type="text" id="search-input" placeholder="전체 내용에서 키워드를 검색해보세요..." autocomplete="off">
-                    <button id="search-btn">
-                        <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            <div class="search-container">
+                <div class="search-interface glass-panel">
+                    <div class="select-wrapper">
+                        <select id="search-category">
+                            <option value="all">전체</option>
+                            <option value="author">작성자</option>
+                            <option value="title">제목</option>
+                            <option value="structure_background">배경</option>
+                            <option value="structure_evidence">근거</option>
+                            <option value="structure_argument">주장</option>
+                            <option value="structure_fact">사실</option>
+                        </select>
+                        <svg class="chevron-down" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
-                        검색
+                    </div>
+
+                    <div class="input-wrapper">
+                        <input type="text" id="search-input" placeholder="검색어를 입력하세요..." autocomplete="off">
+                    </div>
+
+                    <button id="search-btn" class="search-button">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <span>검색</span>
                     </button>
                 </div>
             </div>
         </div>
-
-        <div id="active-filter-display"
-            style="display: none; margin-top: 1rem; text-align: center; color: var(--primary);">
-            <span id="filter-label">전체</span> 에서 <span id="keyword-label" style="font-weight: 700;"></span> 검색 결과
-        </div>
     </div>
 
-    <main>
-        <div id="editorial-list" class="grid">
-            <!-- Editorials will be injected here -->
-        </div>
+    <main class="results-section">
+        <div class="container">
+            <div id="result-status" class="result-status" style="display: none;">
+                <span class="highlight-text">검색 결과</span> 총 <span id="result-count">0</span>건
+            </div>
 
-        <div id="no-results" class="empty-state" style="display: none;">
-            <div class="empty-icon" style="font-size: 3rem; margin-bottom: 1rem;">🔍</div>
-            <p>검색 결과가 없습니다.</p>
-            <small>다른 키워드나 분류를 선택해보세요.</small>
+            <div id="editorial-list" class="grid-layout">
+                <!-- Editorials will be injected here -->
+            </div>
+
+            <div id="no-results" class="empty-state" style="display: none;">
+                <div class="empty-icon">📂</div>
+                <h3>검색 결과가 없습니다</h3>
+                <p>다른 검색어나 카테고리를 선택해보세요.</p>
+            </div>
         </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 신문사설 디지털 라이브러리. All rights reserved. | 작성자 : 임민희</p>
+        <div class="footer-content">
+            <p>&copy; 2024 미니샘의 사설 도서관. All rights reserved.</p>
+            <p class="author-credits">작성자 : 임민희</p>
+        </div>
     </footer>
 
     <script src="data.js"></script>
